@@ -61,6 +61,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIFlyoutShowO
     .init(Data1: 0x17426D30, Data2: 0x70D9, Data3: 0x54D7, Data4: ( 0xBD,0x39,0xE7,0xC4,0xC9,0x40,0xC0,0xF4 ))// 17426D30-70D9-54D7-BD39-E7C4C940C0F4
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIGridViewItemTemplateSettings: WindowsFoundation.IID {
+    .init(Data1: 0x7033E884, Data2: 0x2117, Data3: 0x56E7, Data4: ( 0xAF,0xB8,0xB7,0xF5,0xB8,0xB6,0x4C,0x70 ))// 7033E884-2117-56E7-AFB8-B7F5B8B64C70
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIItemsChangedEventArgs: WindowsFoundation.IID {
     .init(Data1: 0xB2BA1610, Data2: 0x0E96, Data3: 0x538A, Data4: ( 0x97,0x8F,0xEC,0x0B,0x37,0x19,0x32,0x28 ))// B2BA1610-0E96-538A-978F-EC0B37193228
 }
@@ -235,6 +239,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleButto
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleSwitchTemplateSettings: WindowsFoundation.IID {
     .init(Data1: 0x8F9640A3, Data2: 0xAA4E, Data3: 0x52DA, Data4: ( 0xA2,0xC6,0x91,0x67,0xC8,0x00,0xBA,0xBA ))// 8F9640A3-AA4E-52DA-A2C6-9167C800BABA
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings: WindowsFoundation.IID {
+    .init(Data1: 0x4F725950, Data2: 0xFF64, Data3: 0x5CF1, Data4: ( 0x9E,0x86,0x90,0x11,0xFB,0x10,0xE8,0x8E ))// 4F725950-FF64-5CF1-9E86-9011FB10E88E
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIZoomSnapPointBase: WindowsFoundation.IID {
@@ -1160,6 +1168,19 @@ public enum __ABI_Microsoft_UI_Xaml_Controls_Primitives {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return IFlyoutShowOptions(value!)
+        }
+
+    }
+
+    public class IGridViewItemTemplateSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIGridViewItemTemplateSettings }
+
+        internal func get_DragItemsCountImpl() throws -> Int32 {
+            var value: INT32 = 0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIGridViewItemTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_DragItemsCount(pThis, &value))
+            }
+            return value
         }
 
     }
@@ -3940,6 +3961,27 @@ public enum __ABI_Microsoft_UI_Xaml_Controls_Primitives {
             var value: DOUBLE = 0.0
             _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToggleSwitchTemplateSettings.self) { pThis in
                 try CHECKED(pThis.pointee.lpVtbl.pointee.get_CurtainOffToOnOffset(pThis, &value))
+            }
+            return value
+        }
+
+    }
+
+    public class IToolTipTemplateSettings: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings }
+
+        internal func get_FromHorizontalOffsetImpl() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromHorizontalOffset(pThis, &value))
+            }
+            return value
+        }
+
+        internal func get_FromVerticalOffsetImpl() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_FromVerticalOffset(pThis, &value))
             }
             return value
         }

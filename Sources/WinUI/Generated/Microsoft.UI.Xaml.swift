@@ -12,8 +12,6 @@ public typealias ApplicationHighContrastAdjustment = __x_ABI_CMicrosoft_CUI_CXam
 public typealias ApplicationTheme = __x_ABI_CMicrosoft_CUI_CXaml_CApplicationTheme
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.dispatchershutdownmode)
 public typealias DispatcherShutdownMode = __x_ABI_CMicrosoft_CUI_CXaml_CDispatcherShutdownMode
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.durationtype)
-public typealias DurationType = __x_ABI_CMicrosoft_CUI_CXaml_CDurationType
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.elementhighcontrastadjustment)
 public typealias ElementHighContrastAdjustment = __x_ABI_CMicrosoft_CUI_CXaml_CElementHighContrastAdjustment
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.elementsoundmode)
@@ -2986,58 +2984,6 @@ public final class TargetPropertyPath : WinRTClass {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggeraction)
-open class TriggerAction : WinUI.DependencyObject {
-    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.ITriggerAction
-    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction
-    private lazy var _default: SwiftABI! = getInterfaceForCaching()
-    @_spi(WinRTInternal)
-    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
-        if T.self == CABI.self {
-            return RawPointer(_default)
-        }
-        return super._getABI()
-    }
-
-    @_spi(WinRTInternal)
-    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction>?) -> TriggerAction? {
-        guard let abi = abi else { return nil }
-        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
-    }
-
-    @_spi(WinRTInternal)
-    override public init(fromAbi: WindowsFoundation.IInspectable) {
-        super.init(fromAbi: fromAbi)
-    }
-
-    @_spi(WinRTInternal)
-    override public init<Composable: ComposableImpl>(
-        composing: Composable.Type,
-        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
-    {
-        super.init(composing: composing, createCallback)
-    }
-    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
-        return super.queryInterface(iid)
-    }
-    private static var _ITriggerActionFactory : __ABI_Microsoft_UI_Xaml.ITriggerActionFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.TriggerAction"))
-
-    internal enum ITriggerAction : ComposableImpl {
-        internal typealias CABI = C_IInspectable
-        internal typealias SwiftABI = WindowsFoundation.IInspectable
-        internal typealias Class = TriggerAction
-        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
-        internal enum Default : AbiInterface {
-            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction
-            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.ITriggerAction
-        }
-    }
-    internal typealias Composable = ITriggerAction
-    deinit {
-        _default = nil
-    }
-}
-
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.triggerbase)
 open class TriggerBase : WinUI.DependencyObject {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml.ITriggerBase
@@ -5528,22 +5474,6 @@ public struct CornerRadius: Hashable, Codable {
     }
 }
 
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.duration)
-public struct Duration: Hashable, Codable {
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.duration.timespan)
-    public var timeSpan: WindowsFoundation.TimeSpan = .init()
-    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.duration.type)
-    public var type: DurationType = .init(0)
-    public init() {}
-    public init(timeSpan: WindowsFoundation.TimeSpan, type: DurationType) {
-        self.timeSpan = timeSpan
-        self.type = type
-    }
-    public static func from(abi: __x_ABI_CMicrosoft_CUI_CXaml_CDuration) -> Duration {
-        .init(timeSpan: .from(abi: abi.TimeSpan), type: abi.Type)
-    }
-}
-
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlength)
 public struct GridLength: Hashable, Codable {
     /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.gridlength.value)
@@ -5653,19 +5583,6 @@ extension WinUI.DispatcherShutdownMode {
     }
 }
 extension WinUI.DispatcherShutdownMode: @retroactive Hashable, @retroactive Codable {}
-
-extension WinUI.DurationType {
-    public static var automatic : WinUI.DurationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDurationType_Automatic
-    }
-    public static var timeSpan : WinUI.DurationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDurationType_TimeSpan
-    }
-    public static var forever : WinUI.DurationType {
-        __x_ABI_CMicrosoft_CUI_CXaml_CDurationType_Forever
-    }
-}
-extension WinUI.DurationType: @retroactive Hashable, @retroactive Codable {}
 
 extension WinUI.ElementHighContrastAdjustment {
     public static var none : WinUI.ElementHighContrastAdjustment {

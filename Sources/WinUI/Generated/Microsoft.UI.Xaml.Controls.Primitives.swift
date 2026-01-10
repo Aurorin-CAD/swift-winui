@@ -9,14 +9,16 @@ import CWinRT
 public typealias AnimationDirection = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CAnimationDirection
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.componentresourcelocation)
 public typealias ComponentResourceLocation = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CComponentResourceLocation
-/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.edgetransitionlocation)
-public typealias EdgeTransitionLocation = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutplacementmode)
 public typealias FlyoutPlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CFlyoutPlacementMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.flyoutshowmode)
 public typealias FlyoutShowMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CFlyoutShowMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.generatordirection)
 public typealias GeneratorDirection = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGeneratorDirection
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.groupheaderplacement)
+public typealias GroupHeaderPlacement = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGroupHeaderPlacement
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.placementmode)
+public typealias PlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.popupplacementmode)
 public typealias PopupPlacementMode = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPopupPlacementMode
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.scrollsnappointsalignment)
@@ -746,6 +748,40 @@ open class FlyoutShowOptions : WinRTClass {
         }
     }
     internal typealias Composable = IFlyoutShowOptions
+    deinit {
+        _default = nil
+    }
+}
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.gridviewitemtemplatesettings)
+public final class GridViewItemTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IGridViewItemTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIGridViewItemTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIGridViewItemTemplateSettings>?) -> GridViewItemTemplateSettings? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.gridviewitemtemplatesettings.dragitemscount)
+    public var dragItemsCount : Int32 {
+        get { try! _default.get_DragItemsCountImpl() }
+    }
+
     deinit {
         _default = nil
     }
@@ -2564,6 +2600,45 @@ public final class ToggleSwitchTemplateSettings : WinUI.DependencyObject {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tooltiptemplatesettings)
+public final class ToolTipTemplateSettings : WinUI.DependencyObject {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IToolTipTemplateSettings
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override public func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CIToolTipTemplateSettings>?) -> ToolTipTemplateSettings? {
+        guard let abi = abi else { return nil }
+        return .init(fromAbi: WindowsFoundation.IInspectable(abi))
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tooltiptemplatesettings.fromhorizontaloffset)
+    public var fromHorizontalOffset : Double {
+        get { try! _default.get_FromHorizontalOffsetImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.tooltiptemplatesettings.fromverticaloffset)
+    public var fromVerticalOffset : Double {
+        get { try! _default.get_FromVerticalOffsetImpl() }
+    }
+
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.primitives.zoomsnappointbase)
 open class ZoomSnapPointBase : WinUI.SnapPointBase {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls_Primitives.IZoomSnapPointBase
@@ -2756,22 +2831,6 @@ extension WinUI.ComponentResourceLocation {
 }
 extension WinUI.ComponentResourceLocation: @retroactive Hashable, @retroactive Codable {}
 
-extension WinUI.EdgeTransitionLocation {
-    public static var left : WinUI.EdgeTransitionLocation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation_Left
-    }
-    public static var top : WinUI.EdgeTransitionLocation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation_Top
-    }
-    public static var right : WinUI.EdgeTransitionLocation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation_Right
-    }
-    public static var bottom : WinUI.EdgeTransitionLocation {
-        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CEdgeTransitionLocation_Bottom
-    }
-}
-extension WinUI.EdgeTransitionLocation: @retroactive Hashable, @retroactive Codable {}
-
 extension WinUI.FlyoutPlacementMode {
     public static var top : WinUI.FlyoutPlacementMode {
         __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CFlyoutPlacementMode_Top
@@ -2843,6 +2902,35 @@ extension WinUI.GeneratorDirection {
     }
 }
 extension WinUI.GeneratorDirection: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.GroupHeaderPlacement {
+    public static var top : WinUI.GroupHeaderPlacement {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGroupHeaderPlacement_Top
+    }
+    public static var left : WinUI.GroupHeaderPlacement {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CGroupHeaderPlacement_Left
+    }
+}
+extension WinUI.GroupHeaderPlacement: @retroactive Hashable, @retroactive Codable {}
+
+extension WinUI.PlacementMode {
+    public static var bottom : WinUI.PlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode_Bottom
+    }
+    public static var left : WinUI.PlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode_Left
+    }
+    public static var mouse : WinUI.PlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode_Mouse
+    }
+    public static var right : WinUI.PlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode_Right
+    }
+    public static var top : WinUI.PlacementMode {
+        __x_ABI_CMicrosoft_CUI_CXaml_CControls_CPrimitives_CPlacementMode_Top
+    }
+}
+extension WinUI.PlacementMode: @retroactive Hashable, @retroactive Codable {}
 
 extension WinUI.PopupPlacementMode {
     public static var auto : WinUI.PopupPlacementMode {

@@ -5,6 +5,18 @@ import Foundation
 @_spi(WinRTInternal) @_spi(WinRTImplements) import WindowsFoundation
 import CWinRT
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock: WindowsFoundation.IID {
+    .init(Data1: 0x8149D507, Data2: 0x672F, Data3: 0x5FD5, Data4: ( 0xA1,0x0A,0x35,0x13,0x89,0xBA,0x96,0x59 ))// 8149D507-672F-5FD5-A10A-351389BA9659
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory: WindowsFoundation.IID {
+    .init(Data1: 0x21BD671C, Data2: 0x33E2, Data3: 0x56EF, Data4: ( 0xBE,0x37,0xA1,0x28,0xE8,0x98,0x45,0x2C ))// 21BD671C-33E2-56EF-BE37-A128E898452C
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics: WindowsFoundation.IID {
+    .init(Data1: 0x830FEEDF, Data2: 0x9AA6, Data3: 0x56CD, Data4: ( 0x98,0x3E,0x05,0x55,0x00,0x17,0x1B,0x45 ))// 830FEEDF-9AA6-56CD-983E-055500171B45
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink: WindowsFoundation.IID {
     .init(Data1: 0xAC09BD16, Data2: 0xCDFA, Data3: 0x54C2, Data4: ( 0x8D,0x03,0xA4,0x74,0x18,0x15,0x45,0xB1 ))// AC09BD16-CDFA-54C2-8D03-A474181545B1
 }
@@ -23,6 +35,22 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInline: WindowsFoundat
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIInlineFactory: WindowsFoundation.IID {
     .init(Data1: 0xFD253A36, Data2: 0xFA2B, Data3: 0x5B30, Data4: ( 0x89,0xA8,0x9F,0x57,0x78,0x71,0xEC,0x07 ))// FD253A36-FA2B-5B30-89A8-9F577871EC07
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic: WindowsFoundation.IID {
+    .init(Data1: 0xCA3CBEBD, Data2: 0x7A8D, Data3: 0x5D7A, Data4: ( 0x8F,0xDF,0x53,0x8E,0x8A,0x68,0x0F,0x6C ))// CA3CBEBD-7A8D-5D7A-8FDF-538E8A680F6C
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak: WindowsFoundation.IID {
+    .init(Data1: 0x09307599, Data2: 0x7CC2, Data3: 0x5F54, Data4: ( 0xB1,0x06,0x72,0x86,0x20,0xC1,0x6F,0x76 ))// 09307599-7CC2-5F54-B106-728620C16F76
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph: WindowsFoundation.IID {
+    .init(Data1: 0x9ED64C77, Data2: 0x329D, Data3: 0x502F, Data4: ( 0xA2,0x57,0xF5,0x83,0x98,0xED,0xAB,0x51 ))// 9ED64C77-329D-502F-A257-F58398EDAB51
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics: WindowsFoundation.IID {
+    .init(Data1: 0x4EB89AB1, Data2: 0x66C8, Data3: 0x5FC0, Data4: ( 0xAA,0x5F,0x48,0xC8,0x09,0x2C,0xEB,0x5F ))// 4EB89AB1-66C8-5FC0-AA5F-48C8092CEB5F
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIRun: WindowsFoundation.IID {
@@ -73,7 +101,154 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CITextPointer: WindowsFo
     .init(Data1: 0x842EB385, Data2: 0xEE41, Data3: 0x5930, Data4: ( 0x97,0x9B,0x43,0x8F,0xA7,0x52,0x5A,0x51 ))// 842EB385-EE41-5930-979B-438FA7525A51
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline: WindowsFoundation.IID {
+    .init(Data1: 0x68AAEC6E, Data2: 0xEA71, Data3: 0x5ED2, Data4: ( 0xB8,0x3E,0x91,0x68,0x4B,0x25,0xEF,0xB9 ))// 68AAEC6E-EA71-5ED2-B83E-91684B25EFB9
+}
+
 public enum __ABI_Microsoft_UI_Xaml_Documents {
+    public class IBlock: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock }
+
+        internal func get_TextAlignmentImpl() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_TextAlignmentImpl(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextAlignment(pThis, value))
+            }
+        }
+
+        internal func get_HorizontalTextAlignmentImpl() throws -> WinUI.TextAlignment {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CTextAlignment = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignment(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_HorizontalTextAlignmentImpl(_ value: WinUI.TextAlignment) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_HorizontalTextAlignment(pThis, value))
+            }
+        }
+
+        internal func get_LineHeightImpl() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineHeight(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_LineHeightImpl(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineHeight(pThis, value))
+            }
+        }
+
+        internal func get_LineStackingStrategyImpl() throws -> WinUI.LineStackingStrategy {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CLineStackingStrategy = .init(0)
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineStackingStrategy(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_LineStackingStrategyImpl(_ value: WinUI.LineStackingStrategy) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_LineStackingStrategy(pThis, value))
+            }
+        }
+
+        internal func get_MarginImpl() throws -> WinUI.Thickness {
+            var value: __x_ABI_CMicrosoft_CUI_CXaml_CThickness = .init()
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_Margin(pThis, &value))
+            }
+            return .from(abi: value)
+        }
+
+        internal func put_MarginImpl(_ value: WinUI.Thickness) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlock.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Margin(pThis, .from(swift: value)))
+            }
+        }
+
+    }
+
+    public class IBlockFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory }
+
+        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.Block.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IBlock {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IBlock(value!)
+        }
+
+    }
+
+    public class IBlockStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics }
+
+        internal func get_TextAlignmentPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_HorizontalTextAlignmentPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_HorizontalTextAlignmentProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_LineHeightPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineHeightProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_LineStackingStrategyPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_LineStackingStrategyProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_MarginPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIBlockStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_MarginProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
     public class IHyperlink: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIHyperlink }
 
@@ -485,6 +660,58 @@ public enum __ABI_Microsoft_UI_Xaml_Documents {
                 innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
             }
             return IInline(value!)
+        }
+
+    }
+
+    public class IItalic: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIItalic }
+
+    }
+
+    public class ILineBreak: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CILineBreak }
+
+    }
+
+    public class IParagraph: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph }
+
+        internal func get_InlinesImpl() throws -> WinUI.InlineCollection? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Inlines(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func get_TextIndentImpl() throws -> Double {
+            var value: DOUBLE = 0.0
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextIndent(pThis, &value))
+            }
+            return value
+        }
+
+        internal func put_TextIndentImpl(_ value: Double) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraph.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_TextIndent(pThis, value))
+            }
+        }
+
+    }
+
+    public class IParagraphStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics }
+
+        internal func get_TextIndentPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIParagraphStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_TextIndentProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
         }
 
     }
@@ -1275,6 +1502,11 @@ public enum __ABI_Microsoft_UI_Xaml_Documents {
             }
             return .from(abi: result)
         }
+
+    }
+
+    public class IUnderline: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CDocuments_CIUnderline }
 
     }
 

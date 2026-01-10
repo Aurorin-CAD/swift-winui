@@ -12,6 +12,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableIterator: Window
     .init(Data1: 0x6A1D6C07, Data2: 0x076D, Data3: 0x49F2, Data4: ( 0x83,0x14,0xF5,0x2C,0x9C,0x9A,0x83,0x31 ))// 6A1D6C07-076D-49F2-8314-F52C9C9A8331
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVector: WindowsFoundation.IID {
+    .init(Data1: 0xFE1EB536, Data2: 0x7E7F, Data3: 0x4F90, Data4: ( 0xAC,0x9A,0x47,0x49,0x84,0xAA,0xE5,0x12 ))// FE1EB536-7E7F-4F90-AC9A-474984AAE512
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector: WindowsFoundation.IID {
     .init(Data1: 0x393DE7DE, Data2: 0x6FD0, Data3: 0x4C0D, Data4: ( 0xBB,0x71,0x47,0x24,0x4A,0x11,0x3E,0x93 ))// 393DE7DE-6FD0-4C0D-BB71-47244A113E93
 }
@@ -30,6 +34,10 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedE
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventArgsFactory: WindowsFoundation.IID {
     .init(Data1: 0x5108EBA4, Data2: 0x4892, Data3: 0x5A20, Data4: ( 0x83,0x74,0xA9,0x68,0x15,0xE0,0xFD,0x27 ))// 5108EBA4-4892-5A20-8374-A96815E0FD27
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandler: WindowsFoundation.IID {
+    .init(Data1: 0x624CD4E1, Data2: 0xD007, Data3: 0x43B1, Data4: ( 0x9C,0x03,0xAF,0x4D,0x3E,0x62,0x58,0xC4 ))// 624CD4E1-D007-43B1-9C03-AF4D3E6258C4
 }
 
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandler: WindowsFoundation.IID {
@@ -175,6 +183,74 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     )
 
     public typealias IBindableIteratorWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Interop.IBindableIteratorBridge>
+    public class IBindableObservableVector: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVector }
+
+        open func add_VectorChangedImpl(_ handler: WinUI.BindableVectorChangedEventHandler?) throws -> EventRegistrationToken {
+            var token: EventRegistrationToken = .init()
+            let handlerWrapper = __ABI_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandlerWrapper(handler)
+            let _handler = try! handlerWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVector.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.add_VectorChanged(pThis, _handler, &token))
+            }
+            return token
+        }
+
+        open func remove_VectorChangedImpl(_ token: EventRegistrationToken) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVector.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.remove_VectorChanged(pThis, token))
+            }
+        }
+
+    }
+
+    internal static var IBindableObservableVectorVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVectorVtbl = .init(
+        QueryInterface: { IBindableObservableVectorWrapper.queryInterface($0, $1, $2) },
+        AddRef: { IBindableObservableVectorWrapper.addRef($0) },
+        Release: { IBindableObservableVectorWrapper.release($0) },
+        GetIids: {
+            let size = MemoryLayout<WindowsFoundation.IID>.size
+            let iids = CoTaskMemAlloc(UInt64(size) * 5).assumingMemoryBound(to: WindowsFoundation.IID.self)
+            iids[0] = IUnknown.IID
+            iids[1] = IInspectable.IID
+            iids[2] = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper.IID
+            iids[3] = __ABI_Microsoft_UI_Xaml_Interop.IBindableIterableWrapper.IID
+            iids[4] = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper.IID
+            $1!.pointee = 5
+            $2!.pointee = iids
+            return S_OK
+        },
+
+        GetRuntimeClassName: {
+            _ = $0
+            let hstring = try! HString("Microsoft.UI.Xaml.Interop.IBindableObservableVector").detach()
+            $1!.pointee = hstring
+            return S_OK
+        },
+
+        GetTrustLevel: {
+            _ = $0
+            $1!.pointee = TrustLevel(rawValue: 0)
+            return S_OK
+        },
+
+        add_VectorChanged: {
+            guard let __unwrapped__instance = IBindableObservableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            guard let handler = __ABI_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandlerWrapper.unwrapFrom(abi: ComPtr($1)) else { return E_INVALIDARG }
+            let token = __unwrapped__instance.vectorChanged.addHandler(handler)
+            $2?.initialize(to: .from(swift: token))
+            return S_OK
+        },
+
+        remove_VectorChanged: {
+            guard let __unwrapped__instance = IBindableObservableVectorWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let token: EventRegistrationToken = $1
+            __unwrapped__instance.vectorChanged.removeHandler(token)
+            return S_OK
+        }
+    )
+
+    public typealias IBindableObservableVectorWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Interop.IBindableObservableVectorBridge>
     public class IBindableVector: WindowsFoundation.IInspectable {
         override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector }
 
@@ -612,6 +688,45 @@ public enum __ABI_Microsoft_UI_Xaml_Interop {
     }
 
 }
+// MARK - BindableVectorChangedEventHandler
+extension __ABI_Microsoft_UI_Xaml_Interop {
+    public class BindableVectorChangedEventHandler: WindowsFoundation.IUnknown {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandler }
+
+        open func InvokeImpl(_ vector: WinUI.AnyIBindableObservableVector?, _ e: Any?) throws {
+            let vectorWrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper(vector)
+            let _vector = try! vectorWrapper?.toABI { $0 }
+            let eWrapper = __ABI_.AnyWrapper(e)
+            let _e = try! eWrapper?.toABI { $0 }
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandler.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.Invoke(pThis, _vector, _e))
+            }
+        }
+
+    }
+
+
+    typealias BindableVectorChangedEventHandlerWrapper = InterfaceWrapperBase<__IMPL_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandlerBridge>
+    internal static var BindableVectorChangedEventHandlerVTable: __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandlerVtbl = .init(
+        QueryInterface: { BindableVectorChangedEventHandlerWrapper.queryInterface($0, $1, $2) },
+        AddRef: { BindableVectorChangedEventHandlerWrapper.addRef($0) },
+        Release: { BindableVectorChangedEventHandlerWrapper.release($0) },
+        Invoke: {
+            guard let __unwrapped__instance = BindableVectorChangedEventHandlerWrapper.tryUnwrapFrom(raw: $0) else { return E_INVALIDARG }
+            let vector: WinUI.AnyIBindableObservableVector? = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper.unwrapFrom(abi: ComPtr($1))
+            let e: Any? = __ABI_.AnyWrapper.unwrapFrom(abi: ComPtr($2))
+            __unwrapped__instance(vector, e)
+            return S_OK
+        }
+    )
+}
+public extension WinRTDelegateBridge where CABI == __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandler {
+    static func makeAbi() -> CABI {
+        let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandlerVTable) { $0 }
+        return .init(lpVtbl:vtblPtr)
+    }
+}
+
 // MARK - NotifyCollectionChangedEventHandler
 extension __ABI_Microsoft_UI_Xaml_Interop {
     public class NotifyCollectionChangedEventHandler: WindowsFoundation.IUnknown {

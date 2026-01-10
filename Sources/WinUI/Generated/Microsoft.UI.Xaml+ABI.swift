@@ -286,14 +286,6 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CITargetPropertyPathFactory: Window
     .init(Data1: 0x894CB11D, Data2: 0x5C16, Data3: 0x555B, Data4: ( 0xB6,0x61,0xF4,0x1B,0x29,0xFD,0x9B,0x21 ))// 894CB11D-5C16-555B-B661-F41B29FD9B21
 }
 
-private var IID___x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction: WindowsFoundation.IID {
-    .init(Data1: 0x1FA35464, Data2: 0xA690, Data3: 0x586C, Data4: ( 0xAE,0xDF,0x6C,0x88,0xCA,0xC7,0xD1,0x4A ))// 1FA35464-A690-586C-AEDF-6C88CAC7D14A
-}
-
-private var IID___x_ABI_CMicrosoft_CUI_CXaml_CITriggerActionFactory: WindowsFoundation.IID {
-    .init(Data1: 0x1E1FAF1A, Data2: 0xF614, Data3: 0x554A, Data4: ( 0x82,0x2A,0xD9,0x8F,0xE4,0x65,0x75,0xD1 ))// 1E1FAF1A-F614-554A-822A-D98FE46575D1
-}
-
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CITriggerBase: WindowsFoundation.IID {
     .init(Data1: 0xD37DA89D, Data2: 0x0D71, Data3: 0x58CF, Data4: ( 0xA9,0x01,0x99,0xA7,0xD3,0xE5,0xE4,0x34 ))// D37DA89D-0D71-58CF-A901-99A7D3E5E434
 }
@@ -3392,16 +3384,6 @@ public enum __ABI_Microsoft_UI_Xaml {
             }
             return ITargetPropertyPath(value!)
         }
-
-    }
-
-    public class ITriggerAction: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CITriggerAction }
-
-    }
-
-    public class ITriggerActionFactory: WindowsFoundation.IInspectable {
-        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CITriggerActionFactory }
 
     }
 
@@ -6671,11 +6653,6 @@ public enum __ABI_Microsoft_UI_Xaml {
 extension __x_ABI_CMicrosoft_CUI_CXaml_CCornerRadius {
         public static func from(swift: WinUI.CornerRadius) -> __x_ABI_CMicrosoft_CUI_CXaml_CCornerRadius {
             .init(TopLeft: swift.topLeft, TopRight: swift.topRight, BottomRight: swift.bottomRight, BottomLeft: swift.bottomLeft)
-        }
-    }
-    extension __x_ABI_CMicrosoft_CUI_CXaml_CDuration {
-        public static func from(swift: WinUI.Duration) -> __x_ABI_CMicrosoft_CUI_CXaml_CDuration {
-            .init(TimeSpan: .from(swift: swift.timeSpan), Type: swift.type)
         }
     }
     extension __x_ABI_CMicrosoft_CUI_CXaml_CGridLength {

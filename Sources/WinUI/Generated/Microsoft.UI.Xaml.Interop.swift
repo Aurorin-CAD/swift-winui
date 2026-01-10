@@ -91,6 +91,7 @@ open class NotifyCollectionChangedEventArgs : WinRTClass {
     }
 }
 
+public typealias BindableVectorChangedEventHandler = (AnyIBindableObservableVector?, Any?) -> ()
 public typealias NotifyCollectionChangedEventHandler = (Any?, NotifyCollectionChangedEventArgs?) -> ()
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableiterable)
 public protocol IBindableIterable : WinRTInterface {
@@ -131,6 +132,38 @@ extension IBindableIterator {
     }
 }
 public typealias AnyIBindableIterator = any IBindableIterator
+
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector)
+public protocol IBindableObservableVector : IBindableIterable, IBindableVector {
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.vectorchanged)
+    var vectorChanged: Event<BindableVectorChangedEventHandler> { get }
+}
+
+public extension EventSource where Handler == BindableVectorChangedEventHandler {
+    func invoke(_ vector: AnyIBindableObservableVector!, _ e: Any!) {
+        for handler in getInvocationList() {
+            handler(vector, e)
+        }
+    }
+}
+
+extension IBindableObservableVector {
+    public func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        switch iid {
+            case __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper.IID:
+                let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Microsoft_UI_Xaml_Interop.IBindableIterableWrapper.IID:
+                let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableIterableWrapper(self)
+                return wrapper!.queryInterface(iid)
+            case __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper.IID:
+                let wrapper = __ABI_Microsoft_UI_Xaml_Interop.IBindableVectorWrapper(self)
+                return wrapper!.queryInterface(iid)
+            default: return nil
+        }
+    }
+}
+public typealias AnyIBindableObservableVector = any IBindableObservableVector
 
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindablevector)
 public protocol IBindableVector : IBindableIterable {

@@ -75,6 +75,101 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
 
     }
 
+    public enum IBindableObservableVectorBridge : AbiInterfaceBridge {
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableObservableVector
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVector
+        public typealias SwiftProjection = AnyIBindableObservableVector
+        public static func from(abi: ComPtr<CABI>?) -> SwiftProjection? {
+            guard let abi = abi else { return nil }
+            return IBindableObservableVectorImpl(abi)
+        }
+
+        public static func makeAbi() -> CABI {
+            let vtblPtr = withUnsafeMutablePointer(to: &__ABI_Microsoft_UI_Xaml_Interop.IBindableObservableVectorVTable) { $0 }
+            return .init(lpVtbl: vtblPtr)
+        }
+    }
+
+    fileprivate class IBindableObservableVectorImpl: IBindableObservableVector, WinRTAbiImpl {
+        fileprivate typealias Bridge = IBindableObservableVectorBridge
+        fileprivate let _default: Bridge.SwiftABI
+        fileprivate var thisPtr: WindowsFoundation.IInspectable { _default }
+        fileprivate init(_ fromAbi: ComPtr<Bridge.CABI>) {
+            _default = Bridge.SwiftABI(fromAbi)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.vectorchanged)
+        fileprivate lazy var vectorChanged : Event<BindableVectorChangedEventHandler> = {
+          .init(
+            add: { [weak self] in
+              guard let this = self?._default else { return .init() }
+              return try! this.add_VectorChangedImpl($0)
+            },
+            remove: { [weak self] in
+             try? self?._default.remove_VectorChangedImpl($0)
+           }
+          )
+        }()
+
+        private lazy var _IBindableIterable: __ABI_Microsoft_UI_Xaml_Interop.IBindableIterable! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.first)
+        fileprivate func first() throws -> AnyIBindableIterator! {
+            try _IBindableIterable.FirstImpl()
+        }
+
+        private lazy var _IBindableVector: __ABI_Microsoft_UI_Xaml_Interop.IBindableVector! = getInterfaceForCaching()
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.getat)
+        fileprivate func getAt(_ index: UInt32) throws -> Any! {
+            try _IBindableVector.GetAtImpl(index)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.getview)
+        fileprivate func getView() throws -> AnyIBindableVectorView! {
+            try _IBindableVector.GetViewImpl()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.indexof)
+        fileprivate func indexOf(_ value: Any!, _ index: inout UInt32) throws -> Bool {
+            try _IBindableVector.IndexOfImpl(value, &index)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.setat)
+        fileprivate func setAt(_ index: UInt32, _ value: Any!) throws {
+            try _IBindableVector.SetAtImpl(index, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.insertat)
+        fileprivate func insertAt(_ index: UInt32, _ value: Any!) throws {
+            try _IBindableVector.InsertAtImpl(index, value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.removeat)
+        fileprivate func removeAt(_ index: UInt32) throws {
+            try _IBindableVector.RemoveAtImpl(index)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.append)
+        fileprivate func append(_ value: Any!) throws {
+            try _IBindableVector.AppendImpl(value)
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.removeatend)
+        fileprivate func removeAtEnd() throws {
+            try _IBindableVector.RemoveAtEndImpl()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.clear)
+        fileprivate func clear() throws {
+            try _IBindableVector.ClearImpl()
+        }
+
+        /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.interop.ibindableobservablevector.size)
+        fileprivate var size : UInt32 {
+            get { try! _IBindableVector.get_SizeImpl() }
+        }
+
+    }
+
     public enum IBindableVectorBridge : AbiInterfaceBridge {
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVector
         public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.IBindableVector
@@ -240,6 +335,20 @@ public enum __IMPL_Microsoft_UI_Xaml_Interop {
 
     }
 
+    public class BindableVectorChangedEventHandlerBridge : WinRTDelegateBridge {
+        public typealias Handler = BindableVectorChangedEventHandler
+        public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CIBindableVectorChangedEventHandler
+        public typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Interop.BindableVectorChangedEventHandler
+
+        public static func from(abi: ComPtr<CABI>?) -> Handler? {
+            guard let abi = abi else { return nil }
+            let _default = SwiftABI(abi)
+            let handler: Handler = { (vector, e) in
+                try! _default.InvokeImpl(vector, e)
+            }
+            return handler
+        }
+    }
     public class NotifyCollectionChangedEventHandlerBridge : WinRTDelegateBridge {
         public typealias Handler = NotifyCollectionChangedEventHandler
         public typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CInterop_CINotifyCollectionChangedEventHandler
