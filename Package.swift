@@ -2,6 +2,15 @@
 
 import PackageDescription
 
+// Approachable Concurrency settings for Swift 6.2
+let approachableConcurrencySettings: [SwiftSetting] = [
+    .enableUpcomingFeature("DisableOutwardActorInference"),
+    .enableUpcomingFeature("GlobalActorIsolatedTypesUsability"),
+    .enableUpcomingFeature("InferIsolatedConformances"),
+    .enableUpcomingFeature("InferSendableFromCaptures"),
+    .enableUpcomingFeature("NonisolatedNonsendingByDefault")
+]
+
 let package = Package(
     name: "swift-winui",
     products: [
@@ -38,7 +47,8 @@ let package = Package(
                 .product(name: "WinAppSDK", package: "swift-windowsappsdk"),
                 .product(name: "WindowsFoundation", package: "swift-windowsfoundation"),
                 .product(name: "WebView2Core", package: "swift-webview2core"),
-            ]
+            ],
+            swiftSettings: approachableConcurrencySettings
         )
     ]
 )
