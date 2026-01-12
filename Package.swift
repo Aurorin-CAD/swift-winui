@@ -8,7 +8,11 @@ let approachableConcurrencySettings: [SwiftSetting] = [
     .enableUpcomingFeature("GlobalActorIsolatedTypesUsability"),
     .enableUpcomingFeature("InferIsolatedConformances"),
     .enableUpcomingFeature("InferSendableFromCaptures"),
-    .enableUpcomingFeature("NonisolatedNonsendingByDefault")
+    // .enableUpcomingFeature("NonisolatedNonsendingByDefault")
+]
+
+let defaultMainActorIsolationSettings = approachableConcurrencySettings + [
+    .unsafeFlags(["-Xfrontend", "-default-isolation", "-Xfrontend", "MainActor"])
 ]
 
 let package = Package(
@@ -23,19 +27,19 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/Aurorin-CAD/swift-uwp",
-            revision: "511fe98b3c3d0b6afc342c46e81a6859c57c2c51"
+            revision: "c23402e4cbfdb7a557d3aa0cfdf78c046bed7f4e"
         ),
         .package(
             url: "https://github.com/Aurorin-CAD/swift-windowsappsdk",
-            revision: "2f52a212fbd1d4e10c9f05688afabde198fdc24b"
+            revision: "3a1be9709a3b9065c43463b94b54c5351624a030"
         ),
         .package(
-            url: "https://github.com/stackotter/swift-windowsfoundation",
-            revision: "4ad57d20553514bcb23724bdae9121569b19f172"
+            url: "https://github.com/Aurorin-CAD/swift-windowsfoundation",
+            revision: "d42769d70552fe59fade6fdf44bfb71c86101db7"
         ),
         .package(
             url: "https://github.com/Aurorin-CAD/swift-webview2core",
-            revision: "1e7132edd1d23ca8f935a4d8fc2bffe29087dafc"
+            revision: "265c192b5bed1cae6a4af20114400f4dc1cefe7f"
         ),
     ],
     targets: [
@@ -48,7 +52,7 @@ let package = Package(
                 .product(name: "WindowsFoundation", package: "swift-windowsfoundation"),
                 .product(name: "WebView2Core", package: "swift-webview2core"),
             ],
-            swiftSettings: approachableConcurrencySettings
+            swiftSettings: defaultMainActorIsolationSettings
         )
     ]
 )
