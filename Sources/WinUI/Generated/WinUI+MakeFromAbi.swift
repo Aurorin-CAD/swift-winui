@@ -859,6 +859,10 @@ fileprivate func makePasswordBoxPasswordChangingEventArgsFrom(abi: WindowsFounda
     return PasswordBoxPasswordChangingEventArgs(fromAbi: abi)
 }
 
+fileprivate func makePathIconFrom(abi: WindowsFoundation.IInspectable) -> Any {
+    return PathIcon(fromAbi: abi)
+}
+
 fileprivate func makePipsPagerFrom(abi: WindowsFoundation.IInspectable) -> Any {
     return PipsPager(fromAbi: abi)
 }
@@ -2131,6 +2135,7 @@ public class __MakeFromAbi: MakeFromAbi {
             case "Panel": return makePanelFrom(abi: abi)
             case "PasswordBox": return makePasswordBoxFrom(abi: abi)
             case "PasswordBoxPasswordChangingEventArgs": return makePasswordBoxPasswordChangingEventArgsFrom(abi: abi)
+            case "PathIcon": return makePathIconFrom(abi: abi)
             case "PipsPager": return makePipsPagerFrom(abi: abi)
             case "PipsPagerSelectedIndexChangedEventArgs": return makePipsPagerSelectedIndexChangedEventArgsFrom(abi: abi)
             case "PipsPagerTemplateSettings": return makePipsPagerTemplateSettingsFrom(abi: abi)

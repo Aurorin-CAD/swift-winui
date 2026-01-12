@@ -1126,6 +1126,18 @@ private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBoxStatics: Win
     .init(Data1: 0x90E6559C, Data2: 0x5F74, Data3: 0x5CD1, Data4: ( 0x87,0xB6,0xC0,0x51,0x40,0x85,0xAB,0x42 ))// 90E6559C-5F74-5CD1-87B6-C0514085AB42
 }
 
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon: WindowsFoundation.IID {
+    .init(Data1: 0x5C8229DB, Data2: 0x51CD, Data3: 0x5A3B, Data4: ( 0x88,0xEF,0x1D,0x9A,0x8A,0xC9,0x76,0x83 ))// 5C8229DB-51CD-5A3B-88EF-1D9A8AC97683
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIconFactory: WindowsFoundation.IID {
+    .init(Data1: 0x8E88F087, Data2: 0xF2CD, Data3: 0x581C, Data4: ( 0x91,0xCA,0xA9,0x93,0x35,0xCA,0x95,0x99 ))// 8E88F087-F2CD-581C-91CA-A99335CA9599
+}
+
+private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIconStatics: WindowsFoundation.IID {
+    .init(Data1: 0x72BBA29A, Data2: 0x0595, Data3: 0x5F6D, Data4: ( 0xA8,0xDF,0x2A,0x05,0x80,0xA2,0xCD,0x78 ))// 72BBA29A-0595-5F6D-A8DF-2A0580A2CD78
+}
+
 private var IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPipsPager: WindowsFoundation.IID {
     .init(Data1: 0xDE7FC5D5, Data2: 0x9446, Data3: 0x5693, Data4: ( 0xBB,0xF3,0xFD,0x7F,0x94,0x3A,0x56,0x7C ))// DE7FC5D5-9446-5693-BBF3-FD7F943A567C
 }
@@ -18505,6 +18517,58 @@ public enum __ABI_Microsoft_UI_Xaml_Controls {
             let (value) = try ComPtrs.initialize { valueAbi in
                 _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPasswordBoxStatics.self) { pThis in
                     try CHECKED(pThis.pointee.lpVtbl.pointee.get_DescriptionProperty(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+    }
+
+    public class IPathIcon: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon }
+
+        internal func get_DataImpl() throws -> WinUI.Geometry? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_Data(pThis, &valueAbi))
+                }
+            }
+            return .from(abi: value)
+        }
+
+        internal func put_DataImpl(_ value: WinUI.Geometry?) throws {
+            _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon.self) { pThis in
+                try CHECKED(pThis.pointee.lpVtbl.pointee.put_Data(pThis, RawPointer(value)))
+            }
+        }
+
+    }
+
+    public class IPathIconFactory: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIconFactory }
+
+        internal func CreateInstanceImpl(_ baseInterface: UnsealedWinRTClassWrapper<WinUI.PathIcon.Composable>?, _ innerInterface: inout WindowsFoundation.IInspectable?) throws -> IPathIcon {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                let _baseInterface = baseInterface?.toIInspectableABI { $0 }
+                let (_innerInterface) = try ComPtrs.initialize { _innerInterfaceAbi in
+                    _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIconFactory.self) { pThis in
+                        try CHECKED(pThis.pointee.lpVtbl.pointee.CreateInstance(pThis, _baseInterface, &_innerInterfaceAbi, &valueAbi))
+                    }
+                }
+                innerInterface = WindowsFoundation.IInspectable(_innerInterface!)
+            }
+            return IPathIcon(value!)
+        }
+
+    }
+
+    public class IPathIconStatics: WindowsFoundation.IInspectable {
+        override public class var IID: WindowsFoundation.IID { IID___x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIconStatics }
+
+        internal func get_DataPropertyImpl() throws -> WinUI.DependencyProperty? {
+            let (value) = try ComPtrs.initialize { valueAbi in
+                _ = try perform(as: __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIconStatics.self) { pThis in
+                    try CHECKED(pThis.pointee.lpVtbl.pointee.get_DataProperty(pThis, &valueAbi))
                 }
             }
             return .from(abi: value)

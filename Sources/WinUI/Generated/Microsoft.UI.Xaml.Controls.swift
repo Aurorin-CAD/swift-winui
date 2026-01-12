@@ -13724,6 +13724,76 @@ public final class PasswordBoxPasswordChangingEventArgs : WinRTClass {
     }
 }
 
+/// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pathicon)
+open class PathIcon : WinUI.IconElement {
+    private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPathIcon
+    private typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon
+    private lazy var _default: SwiftABI! = getInterfaceForCaching()
+    @_spi(WinRTInternal)
+    override open func _getABI<T>() -> UnsafeMutablePointer<T>? {
+        if T.self == CABI.self {
+            return RawPointer(_default)
+        }
+        return super._getABI()
+    }
+
+    @_spi(WinRTInternal)
+    public static func from(abi: ComPtr<__x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon>?) -> PathIcon? {
+        guard let abi = abi else { return nil }
+        return UnsealedWinRTClassWrapper<Composable>.unwrapFrom(base: abi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init(fromAbi: WindowsFoundation.IInspectable) {
+        super.init(fromAbi: fromAbi)
+    }
+
+    @_spi(WinRTInternal)
+    override public init<Composable: ComposableImpl>(
+        composing: Composable.Type,
+        _ createCallback: (UnsealedWinRTClassWrapper<Composable>?, inout WindowsFoundation.IInspectable?) -> Composable.Default.SwiftABI)
+    {
+        super.init(composing: composing, createCallback)
+    }
+    override open func queryInterface(_ iid: WindowsFoundation.IID) -> IUnknownRef? {
+        return super.queryInterface(iid)
+    }
+    private static var _IPathIconFactory : __ABI_Microsoft_UI_Xaml_Controls.IPathIconFactory =  try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.PathIcon"))
+
+    public init() {
+        super.init(composing: Self.Composable.self) { baseInterface, innerInterface in 
+            try! Self._IPathIconFactory.CreateInstanceImpl(baseInterface, &innerInterface)
+        }
+    }
+
+    private static let _IPathIconStatics: __ABI_Microsoft_UI_Xaml_Controls.IPathIconStatics = try! RoGetActivationFactory(HString("Microsoft.UI.Xaml.Controls.PathIcon"))
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pathicon.dataproperty)
+    public class var dataProperty : WinUI.DependencyProperty! {
+        get { try! _IPathIconStatics.get_DataPropertyImpl() }
+    }
+
+    /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pathicon.data)
+    public var data : WinUI.Geometry! {
+        get { try! _default.get_DataImpl() }
+        set { try! _default.put_DataImpl(newValue) }
+    }
+
+    internal enum IFrameworkElementOverrides : ComposableImpl {
+        internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CIFrameworkElementOverrides
+        internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml.IFrameworkElementOverrides
+        internal typealias Class = PathIcon
+        internal typealias SwiftProjection = WinRTClassWeakReference<Class>
+        internal enum Default : AbiInterface {
+            internal typealias CABI = __x_ABI_CMicrosoft_CUI_CXaml_CControls_CIPathIcon
+            internal typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPathIcon
+        }
+    }
+    internal typealias Composable = IFrameworkElementOverrides
+    deinit {
+        _default = nil
+    }
+}
+
 /// [Open Microsoft documentation](https://learn.microsoft.com/windows/windows-app-sdk/api/winrt/microsoft.ui.xaml.controls.pipspager)
 open class PipsPager : WinUI.Control {
     private typealias SwiftABI = __ABI_Microsoft_UI_Xaml_Controls.IPipsPager
